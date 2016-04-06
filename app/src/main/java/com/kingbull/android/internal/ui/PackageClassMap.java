@@ -14,6 +14,7 @@ import java.util.HashMap;
 public class PackageClassMap {
     public static final HashMap<String, Class> ANDROID_WIDGET_CLASS_MAP = new HashMap<String, Class>() {
         {
+
             put("android.widget.AbsListView", AbsListView.class);
             put("android.widget.AbsSeekBar", AbsSeekBar.class);
             put("android.widget.AbsSpinner", AbsSpinner.class);
