@@ -2,10 +2,9 @@ package com.kingbull.android.internal.ui.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.widget.TextView;
 
-import com.kingbull.android.internal.ui.adapter.FieldAdapter;
 import com.kingbull.internal.R;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
@@ -22,14 +21,14 @@ import butterknife.ButterKnife;
  * Copyright (c) 2016 Kingbull Technology. All rights reserved.
  */
 public class FieldsActivity extends AppCompatActivity {
-    @Bind(R.id.recyclerView)
-    RecyclerView mRecyclerView;
-    FieldAdapter mFieldAdapter;
+    @Bind(R.id.fieldTextView)
+    TextView fieldTextView;
+    List<Field> fieldList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fields);
+        setContentView(R.layout.activity_fieldss);
         ButterKnife.bind(this);
         Class clazz = null;
         try {
@@ -37,13 +36,17 @@ public class FieldsActivity extends AppCompatActivity {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        List<Field> fieldList = FieldUtils.getAllFieldsList(clazz);
-        mFieldAdapter = new FieldAdapter(fieldList);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        mRecyclerView.addItemDecoration(new ItemDecorationAlbumColumns((int) (getResources().getDisplayMetrics().density * 5), 5));
-        mRecyclerView.setHasFixedSize(true);
+        fieldList = FieldUtils.getAllFieldsList(clazz);
+        fieldTextView.setText(Html.fromHtml(buildHtml()));
 
-        mRecyclerView.setAdapter(mFieldAdapter);
+    }
 
+    private String buildHtml() {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < fieldList.size(); i++) {
+            Field field = fieldList.get(i);
+            builder.append(i).append("\t\t").append(field.getName()).append("<br/><br/>");
+        }
+        return builder.toString();
     }
 }

@@ -1,5 +1,26 @@
 package com.kingbull.android.internal.ui;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ArgbEvaluator;
+import android.animation.BidirectionalTypeConverter;
+import android.animation.FloatArrayEvaluator;
+import android.animation.FloatEvaluator;
+import android.animation.IntArrayEvaluator;
+import android.animation.IntEvaluator;
+import android.animation.Keyframe;
+import android.animation.LayoutTransition;
+import android.animation.ObjectAnimator;
+import android.animation.PointFEvaluator;
+import android.animation.PropertyValuesHolder;
+import android.animation.RectEvaluator;
+import android.animation.StateListAnimator;
+import android.animation.TimeAnimator;
+import android.animation.TimeInterpolator;
+import android.animation.TypeConverter;
+import android.animation.TypeEvaluator;
+import android.animation.ValueAnimator;
 import android.os.Build;
 import android.support.v7.widget.ActivityChooserView;
 import android.widget.*;
@@ -123,6 +144,35 @@ public class PackageClassMap {
             put("android.widget.ZoomButtonsController", ZoomButtonsController.class);
             put("android.widget.ZoomButtonsController", ZoomButtonsController.class);
             put("android.widget.ZoomButtonsController", ZoomButtonsController.class);
+
+        }
+    };
+
+    public static final HashMap<String, Class> ANDROID_ANIMATION_CLASS_MAP = new HashMap<String,
+            Class>() {
+        {
+            put("android.animation.Animator", Animator.class);
+            put("android.animation.AnimatorListenerAdapter", AnimatorListenerAdapter.class);
+            put("android.animation.AnimatorSet", AnimatorSet.class);
+            put("android.animation.ArgbEvaluator", ArgbEvaluator.class);
+            put("android.animation.BidirectionalTypeConverter", BidirectionalTypeConverter.class);
+            put("android.animation.FloatArrayEvaluator", FloatArrayEvaluator.class);
+            put("android.animation.FloatEvaluator", FloatEvaluator.class);
+            put("android.animation.IntArrayEvaluator", IntArrayEvaluator.class);
+            put("android.animation.IntEvaluator", IntEvaluator.class);
+            put("android.animation.Keyframe", Keyframe.class);
+            put("android.animation.LayoutTransition", LayoutTransition.class);
+            put("android.animation.ObjectAnimator", ObjectAnimator.class);
+            put("android.animation.PointFEvaluator", PointFEvaluator.class);
+            put("android.animation.PropertyValuesHolder", PropertyValuesHolder.class);
+            put("android.animation.RectEvaluator", RectEvaluator.class);
+            put("android.animation.StateListAnimator", StateListAnimator.class);
+            put("android.animation.TimeAnimator", TimeAnimator.class);
+            put("android.animation.TimeInterpolator", TimeInterpolator.class);
+            put("android.animation.TypeConverter", TypeConverter.class);
+            put("android.animation.TypeEvaluator", TypeEvaluator.class);
+            put("android.animation.ValueAnimator", ValueAnimator.class);
+
 
         }
     };
