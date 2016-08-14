@@ -1,0 +1,30 @@
+language: android
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-23.0.2
+    - android-23
+    - extra-android-m2repository
+    - sys-img-armeabi-v7a-android-14
+
+jdk:
+  - oraclejdk7
+
+after_success:
+  - .buildscript/deploy_snapshot.sh
+
+branches:
+  except:
+    - gh-pages
+
+notifications:
+  email: false
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle
